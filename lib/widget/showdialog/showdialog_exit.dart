@@ -20,13 +20,13 @@ Future<bool> showExitPopup(context) async {
                           exit(0);
                         },
                         style: ElevatedButton.styleFrom(
-                            primary: Colors.red.shade800),
+                            backgroundColor: Colors.red.shade800),
                         child: const Text('Yes'),
                       )),
                       Expanded(
                         child: ElevatedButton(
-                          style:
-                              ElevatedButton.styleFrom(primary: Colors.black),
+                          style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.black),
                           onPressed: () {
                             Navigator.pop(context, false);
                           },

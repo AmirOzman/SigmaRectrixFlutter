@@ -20,7 +20,7 @@ class ButtonIcon extends StatelessWidget {
       icon: icon,
       label: Text(nama),
       style: ElevatedButton.styleFrom(
-        primary: warna ?? Colors.black,
+        backgroundColor: warna ?? Colors.black,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10.0),
         ),

@@ -26,7 +26,7 @@ class ButtonText extends StatelessWidget {
         shape: BoxShape.rectangle,
         child: ElevatedButton(
           style: ElevatedButton.styleFrom(
-              primary: warna ?? Colors.black,
+              backgroundColor: warna ?? Colors.black,
               // primary: Colors.black,
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10.0))),

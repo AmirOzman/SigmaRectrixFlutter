@@ -31,7 +31,7 @@ class UrlpageState extends State<Urlpage> {
                   topRight: Radius.elliptical(10, 5),
                 ),
               ),
-              primary: Colors.white,
+              foregroundColor: Colors.white,
               backgroundColor: Colors.black,
               // backgroundColor: COLOR_2,
               minimumSize: const Size.fromHeight(80)),
