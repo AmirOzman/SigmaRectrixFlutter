@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_import, must_be_immutable, unused_local_variable, unused_catch_clause
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:sigma_crm/screen/landing/getting_started.dart/url_page.dart';

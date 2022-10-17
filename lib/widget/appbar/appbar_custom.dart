@@ -37,6 +37,7 @@ class AppBarCustom extends StatelessWidget implements PreferredSizeWidget {
         ),
       ),
       centerTitle: true,
+      // ignore: fixme
       //FIXME tab tak keluar
       actions: [
         log

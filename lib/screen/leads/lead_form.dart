@@ -148,6 +148,7 @@ class LeadFormState extends State<LeadForm> {
       });
       print('\nCustomer Parent info: \n$companyNameList');
     }
+    // ignore: todo
     //TODO this is for testing only, delete later
     //print (test); //this is to check the info passed into the apps? i think.
     //
@@ -210,7 +211,9 @@ class LeadFormState extends State<LeadForm> {
                     child: SingleChildScrollView(
                       child: Column(
                         children: [
+                          // ignore: todo
                           //TODO radiobutton for selecting between company or individual
+                          // ignore: todo
                           //TODO upload customer image feature
                           TextForm(
                             controller: newName,
@@ -314,6 +317,7 @@ class LeadFormState extends State<LeadForm> {
                                   'city': newCity.text,
                                   'zip': newZip.text,
                                   'vat': taxIdNumber.text,
+                                  // ignore: todo
                                   //TODO tags
                                   'function': newJobPos.text,
                                   'website': newWebsite.text,
@@ -400,6 +404,7 @@ class LeadFormState extends State<LeadForm> {
                             //FIXMETextField Dropdown buttonf.
                             TypeAheadField<GetCompany?>(
                               textFieldConfiguration: TextFieldConfiguration(
+                                // ignore: todo
                                 //TODO logic for empty field and edit view for the field
                                 controller: customerName,
                                 decoration: const InputDecoration(
@@ -419,6 +424,7 @@ class LeadFormState extends State<LeadForm> {
 
                                 return ListTile(
                                   title: Text(
+                                      // ignore: todo
                                       user!), //TODO here we can fill other data such as gambar etc.
                                 );
                               },
@@ -455,6 +461,7 @@ class LeadFormState extends State<LeadForm> {
                                   ..removeCurrentSnackBar()
                                   ..showSnackBar(SnackBar(
                                     content: Text(
+                                        // ignore: todo
                                         'Selected user: ${user.name} ${user.id} ${user.email}'), //TODO change Selected user to Selected company, change user (note: user with lower bracket) to company
                                   ));
                               },
@@ -520,6 +527,7 @@ class LeadFormState extends State<LeadForm> {
                                   });
                                 }
                                 print(
+                                    // ignore: todo
                                     rating); //TODO Remove this later, this is for testing only 10 march @hafizalwi
                               },
                             ),
@@ -535,6 +543,7 @@ class LeadFormState extends State<LeadForm> {
                               controller: notes,
                               kb: TextInputType.multiline,
                               kotak: true,
+                              // ignore: todo
                               //TODO check value passing kat description box
                               initialValue: widget.desc == false
                                   ? 'no description'

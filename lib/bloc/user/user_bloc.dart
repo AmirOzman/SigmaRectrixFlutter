@@ -7,6 +7,7 @@ part 'user_state.dart';
 class UserBloc extends Bloc<UserEvent, UserState> {
   UserBloc() : super(UserInitial()) {
     on<UserEvent>((event, emit) {
+      // ignore: todo
       // TODO: implement event handler
     });
   }

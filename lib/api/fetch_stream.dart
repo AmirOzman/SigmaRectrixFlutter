@@ -179,6 +179,7 @@ class FutureFetch extends StatelessWidget {
         });
   }
 
+// ignore: todo
 //TODO adjust display for bottomsheet opportunity
   Future<dynamic> bottomSheetOpportunity(
       BuildContext context, Map<String, dynamic> record) {

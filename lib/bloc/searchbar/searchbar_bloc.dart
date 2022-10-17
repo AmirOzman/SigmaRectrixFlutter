@@ -7,6 +7,7 @@ part 'searchbar_state.dart';
 class SearchbarBloc extends Bloc<SearchbarEvent, SearchbarState> {
   SearchbarBloc() : super(SearchbarInitial()) {
     on<SearchbarEvent>((event, emit) {
+      // ignore: todo
       // TODO: implement event handler
     });
   }

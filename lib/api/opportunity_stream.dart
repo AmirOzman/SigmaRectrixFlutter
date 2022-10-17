@@ -1,3 +1,5 @@
+// ignore_for_file: unused_local_variable
+
 import 'package:flutter/material.dart';
 import 'package:sigma_crm/widget/widget.dart';
 import 'package:sigma_crm/screen/screen.dart';
@@ -248,6 +250,7 @@ class OpportunityStream extends StatelessWidget {
                                                                   .textTheme
                                                                   .headline5),
                                                       SpacingVertical(10),
+                                                      // ignore: todo
                                                       //TODO maybe put lost reason
                                                       record['meeting_count'] ==
                                                                   null ||
@@ -344,6 +347,7 @@ class OpportunityStream extends StatelessWidget {
                                                 Icons.flag_circle_outlined),
                                             warna: Colors.red,
                                             onPressed: () {
+                                              // ignore: todo
                                               //TODO amik callkw edit stage_id ngan lost_reason
                                               Navigator.push(
                                                 context,
@@ -359,6 +363,7 @@ class OpportunityStream extends StatelessWidget {
                                                 ),
                                               );
 
+                                              // ignore: todo
                                               //TODO dialog untuk letak lost reason
                                             },
                                           ),
@@ -372,6 +377,7 @@ class OpportunityStream extends StatelessWidget {
                                                 Icons.star_border_rounded),
                                             warna: Colors.green,
                                             onPressed: () {
+                                              // ignore: todo
                                               //TODO Convert to Opportunity
                                             },
                                           ),
@@ -429,6 +435,7 @@ class OpportunityStream extends StatelessWidget {
                                                   record['description'] == false
                                                       ? 'Unnamed'
                                                       : record['description'];
+                                              // ignore: todo
                                               //TODO opportunity edit navigation
                                               // Navigator.push(
                                               //     context,

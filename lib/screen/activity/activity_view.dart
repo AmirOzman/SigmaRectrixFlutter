@@ -1,3 +1,5 @@
+// ignore_for_file: unused_import
+
 import 'package:flutter/material.dart';
 import 'package:sigma_crm/widget/widget.dart';
 import 'package:sigma_crm/screen/screen.dart';

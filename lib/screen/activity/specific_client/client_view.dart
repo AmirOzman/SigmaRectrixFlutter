@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_import
+
 import 'package:flutter/material.dart';
 import 'package:sigma_crm/screen/activity/specific_client/client_pass.dart';
 import 'package:sigma_crm/screen/screen.dart';

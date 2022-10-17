@@ -1,3 +1,5 @@
+// ignore_for_file: unused_local_variable, unused_catch_clause
+
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:sigma_crm/screen/screen.dart';
@@ -38,12 +40,14 @@ class TestStream extends StatelessWidget {
             'partner_name',
             'partner_id',
             'description',
+            // ignore: todo
             //TODO show priority
             'priority',
           ],
         },
       });
     } on Exception catch (e) {
+      // ignore: todo
       // TODO
     }
   }
@@ -184,6 +188,7 @@ class TestStream extends StatelessWidget {
                                                                 ),
                                                               ),
                                                             ),
+                                                      // ignore: fixme
                                                       // FIXME testing print date
                                                       // Text(DateTime.parse(
                                                       //         record['create_date'])
@@ -273,6 +278,7 @@ class TestStream extends StatelessWidget {
                                                                               record['priority']),
                                                                     )));
                                                   }),
+                                              // ignore: todo
                                               //TODO convert to opportunity button
                                               ButtonIcon(
                                                   nama:
@@ -338,6 +344,7 @@ class TestStream extends StatelessWidget {
                                                   );
                                                 },
                                               ),
+                                              // ignore: todo
                                               //TODO Previous Meeting button
                                               // ButtonText(
                                               //     nama: 'Previous Meetings',

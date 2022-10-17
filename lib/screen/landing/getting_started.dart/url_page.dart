@@ -1,10 +1,12 @@
+// ignore_for_file: unused_local_variable
+
 import 'package:flutter/material.dart';
-import 'package:lottie/lottie.dart';
-import 'package:sigma_crm/config/theme/theme.dart';
+//import 'package:lottie/lottie.dart';
+//import 'package:sigma_crm/config/theme/theme.dart';
 // import 'package:sigma_crm/screen/landing/getting_started.dart/page_1.dart';
 import 'package:sigma_crm/screen/screen.dart';
 import 'package:sigma_crm/widget/widget.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+//import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class Urlpage extends StatefulWidget {
   const Urlpage({Key? key}) : super(key: key);
@@ -16,6 +18,7 @@ class UrlpageState extends State<Urlpage> {
   final urlController = TextEditingController();
   @override
   Widget build(BuildContext context) {
+    // ignore: todo
     // TODO: implement build
     var urlController;
     var isLastPage;

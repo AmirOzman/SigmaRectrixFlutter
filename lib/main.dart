@@ -1,3 +1,5 @@
+// ignore_for_file: duplicate_import, unused_import
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sigma_crm/screen/screen.dart';
@@ -27,6 +29,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: theme(),
+      // ignore: todo
       //TODO added
       // initialRoute: initScreen == 0 || initScreen == null ? "first" : "/" OnBoarding(),,
       // routes: {},

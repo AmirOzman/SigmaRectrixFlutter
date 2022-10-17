@@ -54,6 +54,7 @@ class _LeadEditState extends State<LeadEdit> {
                                         text: "new customer",
                                         recognizer: TapGestureRecognizer()
                                           ..onTap = () {
+                                            // ignore: fixme
                                             //FIXME
                                             // addCompanyBottom();
                                           },

@@ -48,6 +48,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                     ))),
             SliverList(
               delegate: SliverChildListDelegate([
+                // ignore: fixme
                 //FIXME PaddingConst()
                 SafeArea(
                   child: SingleChildScrollView(
@@ -74,6 +75,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                                               alignment: Alignment.center,
                                               child: Column(
                                                 children: [
+                                                  // ignore: fixme
                                                   //FIXME Temporary.
                                                   Center(
                                                     child: Text(
@@ -118,6 +120,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                                     ],
                                   ),
                                 ),
+                                // ignore: todo
                                 //TODO statistics untuk display success rate.
                                 Expanded(
                                   flex: 1,
@@ -155,6 +158,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                               child: Column(
                                 children: [
                                   const SpacingAll(h: 0.02, w: 0.8),
+                                  // ignore: fixme
                                   //FIXME error controller length property(4) does not match the number of the tabs
                                   Align(
                                     alignment: Alignment.topLeft,

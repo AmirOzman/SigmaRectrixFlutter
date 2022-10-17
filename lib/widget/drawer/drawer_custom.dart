@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_import
+
 import 'package:flutter/material.dart';
 import 'package:sigma_crm/screen/admin/admin_panel.dart';
 import 'package:sigma_crm/widget/widget.dart';
@@ -19,14 +21,14 @@ class DrawerCustom extends StatelessWidget {
         children: [
           const DrawerHead(),
           // const Divider(),
-          if (session.userId == 1) 
+          if (session.userId == 1)
             DrawerItem(
-              title: 'Admin dashboard',
-              navigate: AdminPanel(
-                client,
-                session,
-              )),
-          
+                title: 'Admin dashboard',
+                navigate: AdminPanel(
+                  client,
+                  session,
+                )),
+
           const Divider(),
           DrawerItem(
             title: 'About Us',

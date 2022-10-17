@@ -1,3 +1,5 @@
+// ignore_for_file: unused_import, must_call_super, unused_element, unused_local_variable
+
 import 'package:flutter/material.dart';
 import 'package:sigma_crm/config/theme/theme.dart';
 import 'package:sigma_crm/model/stream/activity/activity_event_participant.dart';
@@ -102,7 +104,9 @@ class _ActivityStreamState extends State<ActivityStream>
               flex: 1,
               child: CircleAvatar(
                 backgroundImage: NetworkImage(
+                  // ignore: todo
                   //TODO check for images of partner
+                  // ignore: todo
                   //TODO change {widget.session.partnerId}
                   '${widget.client.baseURL}/web/image?model=res.partner&id=${widget.session.partnerId}&field=image_medium',
                   headers: {
@@ -164,6 +168,7 @@ class _ActivityStreamState extends State<ActivityStream>
     }
 
     Widget buildListLeads(Map<String, dynamic> record) {
+      // ignore: fixme
       //FIXME map for partner ids / attendees
 
       var unique = record['name'] as String;
@@ -206,6 +211,7 @@ class _ActivityStreamState extends State<ActivityStream>
         trailing: ButtonIcon(
             nama: '',
             onPressed: () {
+              // ignore: todo
               //TODO editing feature
               // Navigator.push(
               //     context,
@@ -373,6 +379,7 @@ class _ActivityStreamState extends State<ActivityStream>
                                                     children: List.generate(
                                                         record['partner_ids']
                                                             .length, (index) {
+                                                      // ignore: fixme
                                                       //FIXME display id only not number
                                                       return Text(
                                                         '${record['partner_ids'][index].toString()} ',
@@ -425,9 +432,9 @@ class _ActivityStreamState extends State<ActivityStream>
                                                                       location:
                                                                           record[
                                                                               'location'],
-                                                                      partnerName:
-                                                                          record[
-                                                                              'partnerName'], //FIXME takleh fetch partnerName
+                                                                      partnerName: record[
+                                                                          // ignore: fixme
+                                                                          'partnerName'], //FIXME takleh fetch partnerName
                                                                     ))));
                                                   }),
                                               ButtonIcon(
@@ -456,6 +463,7 @@ class _ActivityStreamState extends State<ActivityStream>
                   ));
             },
           );
+          // ignore: todo
           //TODO repetitive hasData
         } else if (!snapshot.hasData) {
           return Card(
@@ -494,6 +502,7 @@ class _ActivityStreamState extends State<ActivityStream>
               ),
             );
           }
+          // ignore: todo
           //TODO swap places with connectionstate error or Waiting Connection
           return Card(
             child: Column(

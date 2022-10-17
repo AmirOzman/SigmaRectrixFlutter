@@ -23,6 +23,7 @@ class CustomSearchDelegate extends SearchDelegate {
           'partner_name',
           'partner_id',
           'description',
+          // ignore: todo
           //TODO show priority
           'priority',
         ],

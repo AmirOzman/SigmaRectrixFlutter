@@ -1,3 +1,5 @@
+// ignore_for_file: unused_element
+
 import 'package:flutter/material.dart';
 import 'package:sigma_crm/widget/widget.dart';
 import 'package:sigma_crm/screen/screen.dart';
@@ -28,6 +30,7 @@ class LeadStream extends StatefulWidget {
 class _LeadStreamState extends State<LeadStream> {
   @override
   Widget build(BuildContext context) {
+    // ignore: todo
     //TODO implement try catch error for checking constant connection from odoo package
     Future<dynamic> fetchLeads() async {
       return widget.client.callKw({
@@ -48,6 +51,7 @@ class _LeadStreamState extends State<LeadStream> {
             'partner_name',
             'partner_id',
             'description',
+            // ignore: todo
             //TODO show priority
             'priority',
           ],
@@ -99,6 +103,7 @@ class _LeadStreamState extends State<LeadStream> {
       var unique = record['name'] as String;
 
       unique = unique.replaceAll(RegExp(r'[^0-9]'), '');
+      // ignore: unused_local_variable
       final customerID = record['partner_id'];
       return ListTile(
         leading: CircleAvatar(
@@ -251,6 +256,7 @@ class _LeadStreamState extends State<LeadStream> {
                                                                 ),
                                                               ),
                                                             ),
+                                                      // ignore: fixme
                                                       // FIXME testing print date
                                                       // Text(DateTime.parse(
                                                       //         record['create_date'])

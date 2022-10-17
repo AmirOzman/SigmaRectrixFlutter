@@ -1,3 +1,5 @@
+// ignore_for_file: unused_import, unused_local_variable
+
 import 'package:flutter/material.dart';
 import 'package:sigma_crm/widget/widget.dart';
 import 'package:sigma_crm/model/model.dart';
@@ -38,8 +40,10 @@ class _ActivityNewState extends State<ActivityNew> {
   List companyNameList = [];
   List customerParentList = [];
   String now = DateFormat("E dd-MM-yyyy hh:mm:ss").format(DateTime.now());
+  // ignore: todo
   //TODO this is casting
   // DateTime now = DateFormat("E dd-MM-yyyy hh:mm:ss").format(DateTime.now()) as DateTime;
+  // ignore: todo
   //TODO this for displaying month name and day
   //String now = DateFormat("E dd-LLLL-yyyy hh:mm:ss").format(DateTime.now()); // display month name
   DateTime startDate = DateTime.now();
@@ -174,6 +178,7 @@ class _ActivityNewState extends State<ActivityNew> {
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   ButtonIcon(
+                                    // ignore: fixme
                                     //FIXME datepick not responsive does not dynamically change the display of date
                                     nama: startDate == initialDate &&
                                             startTime == TimeOfDay.now()
@@ -192,6 +197,7 @@ class _ActivityNewState extends State<ActivityNew> {
                                               firstDate: DateTime(2020),
                                               lastDate: DateTime(2050),
                                               confirmText: 'SELECT DATE');
+                                      // ignore: fixme
                                       //FIXME
                                       //         .then((value) {
                                       //   setState(() {
@@ -204,6 +210,7 @@ class _ActivityNewState extends State<ActivityNew> {
                                     },
                                   ),
                                   ButtonIcon(
+                                      // ignore: fixme
                                       //FIXME timepicker not working
                                       nama: startTime == TimeOfDay.now()
                                           ? 'Pick Start Time'
@@ -275,9 +282,13 @@ class _ActivityNewState extends State<ActivityNew> {
                             ],
                           ),
 
+                          // ignore: todo
                           //TODO three bottom
+                          // ignore: todo
                           //TODO One is schedule activity
+                          // ignore: todo
                           //TODO second is draft
+                          // ignore: todo
                           //TODO third is cancel
                         ])
                       ],

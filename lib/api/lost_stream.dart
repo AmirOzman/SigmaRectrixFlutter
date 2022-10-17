@@ -50,6 +50,7 @@ class LostStream extends StatelessWidget {
         },
       );
     }
+    // ignore: todo
     //TODO figure out how to pass partner name to other widget to use.
 
     Widget buildListLost(Map<String, dynamic> record) {
@@ -147,6 +148,7 @@ class LostStream extends StatelessWidget {
                                                 : Text(record['lost_reason']
                                                     .toString()),
                                             const SpacingH(h: 0.01),
+                                            // ignore: fixme
                                             //FIXME repair overflow description
                                             SingleChildScrollView(
                                               child: record['description'] ==

@@ -1,3 +1,5 @@
+// ignore_for_file: unused_import
+
 import 'package:flutter/material.dart';
 import 'package:sigma_crm/widget/widget.dart';
 import 'package:sigma_crm/model/model.dart';
@@ -57,6 +59,7 @@ class _ActivityPastState extends State<ActivityPast> {
                               //   height: 0.8,
                               //   width: 1,
                               // ),
+                              // ignore: todo
                               //TODO show streams of previous activities
                             ],
                           ),

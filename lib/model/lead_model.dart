@@ -1,3 +1,5 @@
+// ignore_for_file: unused_import
+
 import 'package:odoo_rpc/odoo_rpc.dart';
 import 'package:equatable/equatable.dart';
 
@@ -107,6 +109,7 @@ class Leads extends Equatable {
   });
 
   @override
+  // ignore: todo
   // TODO: implement props
   List<Object?> get props => [id, name];
 }

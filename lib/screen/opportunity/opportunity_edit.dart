@@ -70,6 +70,7 @@ class _OpportunityEditState extends State<OpportunityEdit> {
                         onPressed: () {},
                         icon: const Icon(Icons.calendar_month_rounded),
                       ),
+                      // ignore: todo
                       //TODO ratingbuilder
                       // RatingBar.builder(
                       //   initialRating: widget.rate ?? 0,
@@ -92,13 +93,17 @@ class _OpportunityEditState extends State<OpportunityEdit> {
                       //       });
                       //     }
                       //     print(
+                      // ignore: todo
                       //         rating); //TODO Remove this later, this is for testing only 10 march @hafizalwi
                       //   },
                       // ),
 
                       // TextForm(controller: dateDateline, label: label),
+                      // ignore: todo
                       //TODO expected revenue field name "planned_revenue"
+                      // ignore: todo
                       //TODO expected closing field name: "date_dateline"
+                      // ignore: todo
                       //TODO tags field name: "tag_ids" relation crm.lead.tag
                       // ButtonIcon(
                       //     nama: 'Save',

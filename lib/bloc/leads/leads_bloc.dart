@@ -7,6 +7,7 @@ part 'leads_state.dart';
 class LeadsBloc extends Bloc<LeadsEvent, LeadsState> {
   LeadsBloc() : super(LeadsInitial()) {
     on<LeadsEvent>((event, emit) {
+      // ignore: todo
       // TODO: implement event handler
     });
   }

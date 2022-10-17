@@ -1,3 +1,5 @@
+// ignore_for_file: unused_local_variable
+
 import 'package:flutter/material.dart';
 import 'package:sigma_crm/widget/widget.dart';
 
@@ -28,6 +30,7 @@ class _ActivityWCustomerState extends State<ActivityWCustomer> {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       fetchEmployee();
     });
+    // ignore: todo
     // TODO: implement initState
     super.initState();
   }
@@ -35,6 +38,7 @@ class _ActivityWCustomerState extends State<ActivityWCustomer> {
   Future fetchEmployee() async {}
 
   //dropDown employee attendee
+  // ignore: todo
   //TODO
   @override
   Widget build(BuildContext context) {
@@ -76,6 +80,7 @@ class _ActivityWCustomerState extends State<ActivityWCustomer> {
                               roundAll: true,
                               warna: Colors.cyan,
                               child: Column(
+                                // ignore: todo
                                 //TODO maybe use LayoutBuilder
                                 children: [
                                   Text(widget.customer),

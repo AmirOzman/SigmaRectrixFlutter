@@ -9,6 +9,7 @@ class ActivityTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // ignore: todo
     //TODO set size limit maybe
     return Container(
       child: Column(children: [
