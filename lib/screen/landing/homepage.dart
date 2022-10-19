@@ -24,8 +24,18 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
 
-    final avatarURL =
-        '${widget.client.baseURL}/web/image?model=res.partner&id=${widget.session.partnerId}&field=image_medium';
+    final avatarURL;
+
+    print("this is widget session pratner id" +
+        widget.session.partnerId.toString());
+
+    if (widget.session.partnerId != null) {
+      avatarURL =
+          '${widget.client.baseURL}/web/image?model=res.partner&id=${widget.session.partnerId}&field=image_medium';
+
+      print("this is AVATARURL HOMEPAGE" + avatarURL.toString());
+    } else
+      (avatarURL = null);
 
     TabController activityTab = TabController(length: 2, vsync: this);
     return WillPopScope(
@@ -122,6 +132,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                                 ),
                                 // ignore: todo
                                 //TODO statistics untuk display success rate.
+
                                 Expanded(
                                   flex: 1,
                                   child: Card(
@@ -130,14 +141,19 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                                       child: SizedBox(
                                           width: double.infinity,
                                           height: double.infinity,
-                                          child: CircleAvatar(
-                                            backgroundImage: NetworkImage(
-                                                avatarURL,
-                                                headers: {
-                                                  "X-Openerp-Session-Id": widget
-                                                      .client.sessionId!.id
-                                                }),
-                                          )),
+                                          child: avatarURL != null
+                                              ? CircleAvatar(
+                                                  onBackgroundImageError: null,
+                                                  backgroundImage: NetworkImage(
+                                                      avatarURL,
+                                                      headers: {
+                                                        "X-Openerp-Session-Id":
+                                                            widget.client
+                                                                .sessionId!.id
+                                                      }))
+                                              : CircleAvatar(
+                                                  backgroundColor: Colors.black,
+                                                )),
                                     ),
                                   ),
                                 ),
@@ -229,7 +245,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                                         session: widget.session,
                                         client: widget.client,
                                         direction: Axis.horizontal,
-                                        limit: 5,
+                                        limit: 100,
                                         height: 0.15,
                                         width: 0.6,
                                       )),

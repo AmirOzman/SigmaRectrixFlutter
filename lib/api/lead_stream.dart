@@ -55,7 +55,7 @@ class _LeadStreamState extends State<LeadStream> {
             //TODO show priority
             'priority',
           ],
-          'limit': widget.limit,
+          //'limit': widget.limit,
         },
       });
     }
@@ -100,17 +100,37 @@ class _LeadStreamState extends State<LeadStream> {
     }
 
     Widget buildListLeads(Map<String, dynamic> record) {
-      var unique = record['name'] as String;
+      final customerID = record['partner_id'];
+      final avatarURL;
 
+      if (customerID != false) {
+        avatarURL =
+            '${widget.client.baseURL}/web/image?model=res.partner&id=${customerID[0]}&field=image_medium';
+      } else
+        (avatarURL = null);
+
+      print("this is avatar url" + avatarURL.toString());
+      print("this is customerID " + customerID.toString());
+
+      var unique = record['name'] as String;
       unique = unique.replaceAll(RegExp(r'[^0-9]'), '');
       // ignore: unused_local_variable
-      final customerID = record['partner_id'];
+
       return ListTile(
-        leading: CircleAvatar(
-          backgroundImage: NetworkImage(
-              '${widget.client.baseURL}/web/image?model=res.partner&id=${record['partner_id']}&field=image_medium',
-              headers: {"X-Openerp-Session-Id": widget.client.sessionId!.id}),
-        ),
+        leading: avatarURL != null
+            ? CircleAvatar(
+                onBackgroundImageError: null,
+                backgroundImage: NetworkImage(
+                  avatarURL,
+                  headers: {
+                    "X-Openerp-Session-Id": widget.client.sessionId!.id
+                  },
+                ),
+              )
+            : CircleAvatar(
+                backgroundColor: Colors.black,
+              ),
+
         // tileColor:
         //     record['priority'] == true ? Colors.amberAccent : Colors.blueGrey,
         title: Center(
@@ -118,7 +138,7 @@ class _LeadStreamState extends State<LeadStream> {
             record['name'],
             maxLines: 2,
             overflow: TextOverflow.ellipsis,
-            style: Theme.of(context).textTheme.headline6,
+            style: Theme.of(context).textTheme.headline5,
           ),
         ),
         subtitle: Center(

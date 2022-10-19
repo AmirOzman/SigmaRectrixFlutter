@@ -209,7 +209,7 @@ class LoginScreenState extends State<LoginScreen>
 
                                                     ///Odoo 15
                                                     // 'https://senanglah.com/';
-                                                    // 'http://localhost:8069';
+                                                    'http://localhost:8069';
                                                     // Authenticate to server with db name and credentials
                                                     var client = OdooClient(
                                                         //widget
@@ -229,12 +229,12 @@ class LoginScreenState extends State<LoginScreen>
                                                     final session = await client
                                                         .authenticate(
                                                             'amir',
-                                                            //'amiruddinozman@gmail.co',
-                                                            _email.text,
+                                                            'amiruddinozman@gmail.com',
+                                                            //_email.text,
                                                             'Khaiozman123');
                                                     // 'myerpsigma',
                                                     //.text,
-                                                    // _password.text);
+                                                    //_password.text);
 
                                                     setState(() {
                                                       isLoading = true;
