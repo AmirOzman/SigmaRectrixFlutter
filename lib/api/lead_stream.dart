@@ -7,6 +7,7 @@ import 'package:intl/intl.dart';
 
 class LeadStream extends StatefulWidget {
   final OdooClient client;
+
   final OdooSession session;
   final Axis direction;
   final int limit;
@@ -28,6 +29,11 @@ class LeadStream extends StatefulWidget {
 }
 
 class _LeadStreamState extends State<LeadStream> {
+  @override
+  void dispose() {
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     // ignore: todo
@@ -355,13 +361,18 @@ class _LeadStreamState extends State<LeadStream> {
                                                                           .client,
                                                                       widget
                                                                           .session,
-                                                                      desc: record[
-                                                                          'description'],
+                                                                      desc: record['description'] ==
+                                                                              false
+                                                                          ? 'no description'
+                                                                          : record[
+                                                                              'description'],
                                                                       leadname:
                                                                           record[
                                                                               'name'],
-                                                                      clientName:
-                                                                          record[
+                                                                      clientName: record['partner_name'] ==
+                                                                              false
+                                                                          ? 'no partner name'
+                                                                          : record[
                                                                               'partner_name'],
                                                                       rate: double
                                                                           .parse(

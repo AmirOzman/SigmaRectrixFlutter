@@ -48,7 +48,9 @@ class LeadFormState extends State<LeadForm> {
   //below is variable for others
 
   final customerName = TextEditingController();
-  final leadname = TextEditingController();
+  late TextEditingController leadname =
+      TextEditingController(text: widget.leadname);
+
   final notes = TextEditingController();
   var companyName = '';
   var companyId = '';
@@ -396,7 +398,7 @@ class LeadFormState extends State<LeadForm> {
                               focus: true,
                               controller: leadname,
                               label: "Lead Name",
-                              initialValue: widget.leadname,
+                              //initialValue: widget.leadname,
                             ),
                             const SpacingPixel(
                               h: 20,
@@ -545,9 +547,10 @@ class LeadFormState extends State<LeadForm> {
                               kotak: true,
                               // ignore: todo
                               //TODO check value passing kat description box
-                              initialValue: widget.desc == false
-                                  ? 'no description'
-                                  : widget.desc,
+                              //initialValue:
+                              //widget.desc == false || widget.desc == null
+                              //    ? 'no description'
+                              //    : widget.desc,
                             ),
                             const SpacingAll(h: 0.01, w: 1),
                           ],

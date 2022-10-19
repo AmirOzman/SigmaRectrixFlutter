@@ -57,6 +57,7 @@ class _ActivityStreamState extends State<ActivityStream>
   @override
   void dispose() {
     calendarController.dispose();
+    super.dispose();
   }
 
   @override

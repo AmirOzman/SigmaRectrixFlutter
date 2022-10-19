@@ -29,6 +29,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
     print("this is widget session pratner id" +
         widget.session.partnerId.toString());
 
+    // ignore: unnecessary_null_comparison
     if (widget.session.partnerId != null) {
       avatarURL =
           '${widget.client.baseURL}/web/image?model=res.partner&id=${widget.session.partnerId}&field=image_medium';
