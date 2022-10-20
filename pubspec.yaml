@@ -42,6 +42,7 @@ dependencies:
   cached_network_image: ^3.2.2
   # hexcolor: ^2.0.6
 
+
 flutter_native_splash:
   color: "26408b"
   image: assets/logo-CRM.png

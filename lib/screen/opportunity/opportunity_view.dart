@@ -24,8 +24,8 @@ class _OpportunityViewState extends State<OpportunityView> {
       onWillPop: () => showExitPopup(context),
       child: Scaffold(
         body: DefaultTabController(
-          initialIndex: 2,
-          length: 7,
+          initialIndex: 0,
+          length: 8,
           child: CustomScrollView(slivers: [
             SliverAppBarCustom(
               client: widget.client,
@@ -50,6 +50,15 @@ class _OpportunityViewState extends State<OpportunityView> {
                 ),
                 isScrollable: true,
                 tabs: [
+                  Tab(
+                    child: Text(
+                      'New',
+                      style: Theme.of(context)
+                          .textTheme
+                          .headline5
+                          ?.copyWith(color: Colors.white),
+                    ),
+                  ),
                   Tab(
                     child: Text(
                       'Lost',
@@ -122,8 +131,8 @@ class _OpportunityViewState extends State<OpportunityView> {
                 warna: Colors.blue,
                 roundAll: true,
                 child: TabBarView(children: [
+                  OpportunityNew(widget.client, widget.session),
                   OpportunityLost(widget.client, widget.session),
-                  // OpportunityNew(widget.client, widget.session),
                   OpportunityNoBudget(widget.client, widget.session),
                   OpportunityDiagnose(widget.client, widget.session),
                   OpportunityProposisiotn(widget.client, widget.session),

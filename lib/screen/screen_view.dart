@@ -46,8 +46,6 @@ class _ScreenViewState extends State<ScreenView> {
               widget.client,
               widget.session,
             ),
-            
-                     
           ],
         ),
       ),

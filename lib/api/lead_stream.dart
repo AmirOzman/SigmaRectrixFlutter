@@ -115,9 +115,6 @@ class _LeadStreamState extends State<LeadStream> {
       } else
         (avatarURL = null);
 
-      print("this is avatar url" + avatarURL.toString());
-      print("this is customerID " + customerID.toString());
-
       var unique = record['name'] as String;
       unique = unique.replaceAll(RegExp(r'[^0-9]'), '');
       // ignore: unused_local_variable
@@ -398,22 +395,20 @@ class _LeadStreamState extends State<LeadStream> {
                                                       },
                                                     );
                                                     Navigator.of(context).pop();
-                                                    Future.delayed(
-                                                        const Duration(
-                                                            seconds: 3), () {
-                                                      Navigator
-                                                          .pushAndRemoveUntil(
-                                                              context,
-                                                              MaterialPageRoute(
-                                                                  builder:
-                                                                      (context) =>
-                                                                          ScreenView(
-                                                                            widget.client,
-                                                                            widget.session,
-                                                                          )),
-                                                              (route) => false);
-                                                    });
-                                                    setState(() {});
+
+                                                    Navigator
+                                                        .pushAndRemoveUntil(
+                                                            context,
+                                                            MaterialPageRoute(
+                                                                builder:
+                                                                    (context) =>
+                                                                        ScreenView(
+                                                                          widget
+                                                                              .client,
+                                                                          widget
+                                                                              .session,
+                                                                        )),
+                                                            (route) => false);
 
                                                     ScaffoldMessenger.of(
                                                             context)

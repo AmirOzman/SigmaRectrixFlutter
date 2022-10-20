@@ -37,7 +37,7 @@ class OpportunityStream extends StatelessWidget {
           'context': {'bin_size': true},
           'domain': [
             ['type', '=', 'opportunity'],
-            ['stage_id', '=', filter],
+            //['stage_id', '=', filter],
           ],
           'fields': [
             'id',
@@ -52,7 +52,7 @@ class OpportunityStream extends StatelessWidget {
             'stage_id',
             'lost_reason',
           ],
-          'limit': limit,
+          //'limit': limit,
           //offset
         },
       });

@@ -26,14 +26,6 @@ class _OpportunityNewState extends State<OpportunityNew> {
     return Scaffold(
       body: CustomScrollView(
         slivers: [
-          SliverAppBarCustom(
-            client: widget.client,
-            session: widget.session,
-            log: true,
-            find: true,
-            float: true,
-            tajuk: const Text('New'),
-          ),
           SliverList(
             delegate: SliverChildListDelegate(
               [
