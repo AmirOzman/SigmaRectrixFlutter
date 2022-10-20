@@ -23,7 +23,7 @@ class OpportunityStream extends StatelessWidget {
     required this.height,
     required this.width,
     // this.lost,
-    this.filter = 1,
+    required this.filter,
   }) : super(key: key);
 
   @override
@@ -37,7 +37,7 @@ class OpportunityStream extends StatelessWidget {
           'context': {'bin_size': true},
           'domain': [
             ['type', '=', 'opportunity'],
-            //['stage_id', '=', filter],
+            ['stage_id', '=', filter],
           ],
           'fields': [
             'id',

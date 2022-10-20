@@ -46,7 +46,7 @@ class _OpportunityNewState extends State<OpportunityNew> {
                           height: 0.16,
                           width: 0.8,
                           limit: 80,
-                          filter: 0,
+                          filter: 1,
                         ),
                       ),
                     ],
