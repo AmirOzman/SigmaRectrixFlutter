@@ -46,7 +46,7 @@ class _LostReasonState extends State<LostReason> {
             },
           );
 
-          widget.client.callKw({'model': 'crm.lead', 'method': 'write'});
+          //widget.client.callKw({'model': 'crm.lead', 'method': 'write'});
           widget.client.callKw({
             'model': 'crm.lead',
             'method': 'write',
@@ -54,7 +54,8 @@ class _LostReasonState extends State<LostReason> {
               record['id'],
               {
                 'crm.stage': 9,
-                'lost_reason': reason_no,
+                //'lost_reason': reason_no,
+                'lost_reason': 1,
               }
             ],
             'kwargs': {
@@ -89,11 +90,12 @@ class _LostReasonState extends State<LostReason> {
                 // return DropdownButton<GetReason>(items: results.map((result)),)
                 return DropdownButton<GetReason>(
                   items:
-                      snapshot.data.results.map((GetReason dropDownStringItem) {
+                      //snapshot.data.results.map((GetReason dropDownStringItem)
+                      snapshot.data((GetReason dropDownStringItem) {
                     return DropdownMenuItem<GetReason>(
                         value: dropDownStringItem,
                         child: Text(dropDownStringItem.name.toString()));
-                  }).toList(),
+                  }),
                   onChanged: (value) {
                     setState(() {
                       _selected = value!;

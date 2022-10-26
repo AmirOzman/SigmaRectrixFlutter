@@ -302,41 +302,39 @@ class OpportunityStream extends StatelessWidget {
                                       //this is the data
                                     ],
                                   ),
-
-                                  Column(
-                                    children: [
-                                      Text(
-                                        'Description : ',
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .headline5,
-                                      ),
-                                    ],
+                                  Text(
+                                    'Description : ',
+                                    style:
+                                        Theme.of(context).textTheme.headline5,
                                   ),
-                                  SingleChildScrollView(
-                                    child: record['description'] == false
-                                        ? Container(
-                                            child: Text(
-                                              'No Description',
+                                  Expanded(
+                                    child: SingleChildScrollView(
+                                      physics: AlwaysScrollableScrollPhysics(),
+                                      child: record['description'] == false
+                                          ? Container(
+                                              child: Text(
+                                                'No Description',
+                                                style: Theme.of(context)
+                                                    .textTheme
+                                                    .headline5!
+                                                    .copyWith(
+                                                      fontStyle:
+                                                          FontStyle.italic,
+                                                    ),
+                                              ),
+                                            )
+                                          : Text(
+                                              record['description'].toString(),
                                               style: Theme.of(context)
                                                   .textTheme
                                                   .headline5!
                                                   .copyWith(
                                                     fontStyle: FontStyle.italic,
                                                   ),
+                                              //maxLines: 5,
+                                              //overflow: TextOverflow.ellipsis,
                                             ),
-                                          )
-                                        : Text(
-                                            record['description'].toString(),
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .headline5!
-                                                .copyWith(
-                                                  fontStyle: FontStyle.italic,
-                                                ),
-                                            maxLines: 5,
-                                            overflow: TextOverflow.ellipsis,
-                                          ),
+                                    ),
                                   ),
 
                                   //SpacingVertical(4),
@@ -363,7 +361,8 @@ class OpportunityStream extends StatelessWidget {
                                                   session: session,
                                                   clientName:
                                                       record['partner_name'],
-                                                  desc: record['desc'],
+                                                  desc:
+                                                      record['desc'].toString(),
                                                 ),
                                               ),
                                             );
