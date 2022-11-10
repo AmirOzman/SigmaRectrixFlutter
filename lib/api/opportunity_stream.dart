@@ -361,8 +361,9 @@ class OpportunityStream extends StatelessWidget {
                                                   session: session,
                                                   clientName:
                                                       record['partner_name'],
-                                                  desc:
+                                                  newLost:
                                                       record['desc'].toString(),
+                                                  createLost: '',
                                                 ),
                                               ),
                                             );

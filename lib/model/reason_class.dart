@@ -1,12 +1,15 @@
 import 'package:odoo_rpc/odoo_rpc.dart';
 
-late final OdooClient client;
+//late final OdooClient? client;
+OdooClient? client;
 
 class GetReason {
+  final OdooClient? client;
   final String? name;
   final int? id;
 
   GetReason({
+    this.client,
     this.name,
     this.id,
   });
@@ -40,7 +43,7 @@ class ReasonApi {
   Future<List<GetReason>> getReasonSuggestion() async {
     List reasonlist;
 
-    final reason = await client.callKw({
+    final reason = await client?.callKw({
       'model': 'crm.lost.reason',
       'method': 'search_read',
       'args': [],
