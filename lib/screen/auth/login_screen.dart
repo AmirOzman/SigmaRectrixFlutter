@@ -231,7 +231,7 @@ class LoginScreenState extends State<LoginScreen>
                                                             'amir',
                                                             'amiruddinozman@gmail.com',
                                                             //_email.text,
-                                                            'Khaiozman123');
+                                                            ' ');
                                                     // 'myerpsigma',
                                                     //.text,
                                                     //_password.text);

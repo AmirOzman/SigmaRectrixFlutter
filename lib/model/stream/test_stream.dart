@@ -276,6 +276,7 @@ class TestStream extends StatelessWidget {
                                                                       rate: double
                                                                           .parse(
                                                                               record['priority']),
+                                                                      id: null,
                                                                     )));
                                                   }),
                                               // ignore: todo

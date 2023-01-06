@@ -7,7 +7,6 @@ import 'package:intl/intl.dart';
 
 class LeadStream extends StatefulWidget {
   final OdooClient client;
-
   final OdooSession session;
   final Axis direction;
   final int limit;
@@ -325,175 +324,144 @@ class _LeadStreamState extends State<LeadStream> {
                                         ],
                                       ),
                                     ),
-                                    Expanded(
-                                      child: Column(
-                                        children: [
-                                          Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceAround,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.end,
-                                            children: [
-                                              ButtonIcon(
-                                                  nama: 'Edit',
-                                                  icon: const Icon(
-                                                      Icons.edit_note_rounded),
-                                                  warna: Colors.black,
-                                                  onPressed: () {
-                                                    print(record['description']
-                                                            .toString() +
-                                                        record['name']
-                                                            .toString() +
-                                                        record['partner_name']
-                                                            .toString() +
-                                                        record['priority']
-                                                            .toString());
-                                                    Navigator.push(
-                                                        context,
-                                                        MaterialPageRoute(
-                                                            builder:
-                                                                (context) =>
-                                                                    LeadForm(
-                                                                      widget
-                                                                          .client,
-                                                                      widget
-                                                                          .session,
-                                                                      desc: record['description'] ==
-                                                                              false
-                                                                          ? 'no description'
-                                                                          : record[
-                                                                              'description'],
-                                                                      leadname:
-                                                                          record[
-                                                                              'name'],
-                                                                      clientName: record['partner_name'] ==
-                                                                              false
-                                                                          ? 'no partner name'
-                                                                          : record[
-                                                                              'partner_name'],
-                                                                      rate: double
-                                                                          .parse(
-                                                                              record['priority']),
-                                                                    )));
-                                                  }),
-                                              ButtonIcon(
-                                                  nama:
-                                                      'Convert to Opportunity',
-                                                  onPressed: () {
-                                                    widget.client.callKw(
-                                                      {
-                                                        'model': 'crm.lead',
-                                                        'method': 'write',
-                                                        'args': [
-                                                          record['id'],
-                                                          {
-                                                            'type':
-                                                                'opportunity',
-                                                          },
-                                                        ],
-                                                        'kwargs': {},
-                                                      },
-                                                    );
-                                                    Navigator.of(context).pop();
-
-                                                    Navigator
-                                                        .pushAndRemoveUntil(
-                                                            context,
-                                                            MaterialPageRoute(
-                                                                builder:
-                                                                    (context) =>
-                                                                        ScreenView(
-                                                                          widget
-                                                                              .client,
-                                                                          widget
-                                                                              .session,
-                                                                        )),
-                                                            (route) => false);
-
-                                                    ScaffoldMessenger.of(
-                                                            context)
-                                                        .showSnackBar(
-                                                      const SnackBar(
-                                                        behavior:
-                                                            SnackBarBehavior
-                                                                .floating,
-                                                        content: Text(
-                                                            'converted to Opportunity'),
-                                                      ),
-                                                    );
-                                                  },
-                                                  icon: const Icon(
-                                                      Icons.move_up_rounded)),
-                                            ],
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceAround,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.end,
+                                      children: [
+                                        Expanded(
+                                          flex: 3,
+                                          child: ButtonIcon(
+                                            nama: 'Edit',
+                                            icon: const Icon(
+                                                Icons.edit_note_rounded),
+                                            warna: Colors.black,
+                                            onPressed: () {
+                                              print(record['description']
+                                                      .toString() +
+                                                  record['name'].toString() +
+                                                  record['partner_name']
+                                                      .toString() +
+                                                  record['priority']
+                                                      .toString());
+                                              Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                      builder: (context) =>
+                                                          LeadForm(
+                                                            widget.client,
+                                                            widget.session,
+                                                            id: record['id'],
+                                                            desc: record[
+                                                                        'description'] ==
+                                                                    false
+                                                                ? 'no description'
+                                                                : record[
+                                                                    'description'],
+                                                            leadname:
+                                                                record['name'],
+                                                            clientName: record[
+                                                                        'partner_name'] ==
+                                                                    false
+                                                                ? 'no partner name'
+                                                                : record[
+                                                                    'partner_name'],
+                                                            rate: double.parse(
+                                                                record[
+                                                                    'priority']),
+                                                          )));
+                                            },
                                           ),
-                                          // Row(
-                                          //   mainAxisAlignment:
-                                          //       MainAxisAlignment.spaceAround,
-                                          //   crossAxisAlignment:
-                                          //       CrossAxisAlignment.end,
-                                          //   children: [
-                                          //     ButtonText(
-                                          //       nama: "Schedule an activity",
-                                          //       lebar: 0.3,
-                                          //       warna: Colors.black,
-                                          //       onPressed: () {
-                                          //         String customer =
-                                          //             record['partner_name'];
-                                          //         int customerID =
-                                          //             record['partner_id'];
-                                          //         Navigator.push(
-                                          //           context,
-                                          //           MaterialPageRoute(
-                                          //             builder: (context) =>
-                                          //                 //     ActivityFuture(
-                                          //                 //   client,
-                                          //                 //   session,
-                                          //                 // ),
-                                          //                 ActivityWCustomer(
-                                          //               widget.client,
-                                          //               widget.session,
-                                          //               customer: customer,
-                                          //               customerID: customerID,
-                                          //             ),
-                                          //           ),
-                                          //         );
-                                          //       },
-                                          //     ),
-                                          //     ButtonIcon(
-                                          //       nama: 'Previous Meetings',
-                                          //       onPressed: () {
-                                          //         Navigator.push(
-                                          //           context,
-                                          //           MaterialPageRoute(
-                                          //             builder: (context) =>
-                                          //                 ActivityPast(
-                                          //               widget.client,
-                                          //               widget.session,
-                                          //               customerName:
-                                          //                   partnerName(record),
-                                          //               customerID:
-                                          //                   partnerID(record),
-                                          //             ),
-                                          //           ),
-                                          //         );
-                                          //       },
-                                          //       icon: const Icon(
-                                          //           Icons.people_outline),
-                                          //     ),
-                                          //     // ButtonText(
-                                          //     //     nama: 'Previous Meetings',
-                                          //     //     lebar: 0.3,
-                                          //     //     onPressed: () {
-                                          //     //       // Widget customerID =
-                                          //     //       //     partnerID(record);
+                                        ),
+                                        Expanded(child: SpacingHorizontal(20)),
+                                        Expanded(
+                                          flex: 3,
+                                          child: ButtonIcon(
+                                            nama: 'Convert to Opportunity',
+                                            icon: const Icon(
+                                                Icons.move_up_rounded),
+                                            warna: Colors.green,
+                                            onPressed: () {
+                                              widget.client.callKw(
+                                                {
+                                                  'model': 'crm.lead',
+                                                  'method': 'write',
+                                                  'args': [
+                                                    record['id'],
+                                                    {
+                                                      'type': 'opportunity',
+                                                    },
+                                                  ],
+                                                  'kwargs': {},
+                                                },
+                                              );
+                                              Navigator.of(context).pop();
 
-                                          //     //       //partnerID(record);
-                                          //     //     })
-                                          //   ],
-                                          // ),
-                                        ],
-                                      ),
+                                              Navigator.pushAndRemoveUntil(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                      builder: (context) =>
+                                                          ScreenView(
+                                                            widget.client,
+                                                            widget.session,
+                                                          )),
+                                                  (route) => false);
+
+                                              ScaffoldMessenger.of(context)
+                                                  .showSnackBar(
+                                                const SnackBar(
+                                                  behavior:
+                                                      SnackBarBehavior.floating,
+                                                  content: Text(
+                                                      'converted to Opportunity'),
+                                                ),
+                                              );
+                                            },
+                                          ),
+                                        ),
+                                      ],
                                     ),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceAround,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.end,
+                                      children: [
+                                        Expanded(
+                                          flex: 3,
+                                          child: Center(
+                                            child: ButtonIcon(
+                                              nama: 'Activities',
+                                              warna: Colors.blue,
+                                              onPressed: () {
+                                                final clientID = record['id'];
+
+                                                final clientName = record[
+                                                            'partner_name'] ==
+                                                        false
+                                                    ? 'Unnamed'
+                                                    : record['partner_name'];
+                                                Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        ClientView(
+                                                      widget.client,
+                                                      widget.session,
+                                                      clientId: clientID,
+                                                      clientName: clientName,
+                                                    ),
+                                                  ),
+                                                );
+                                              },
+                                              icon: const Icon(
+                                                  Icons.people_outline),
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    )
                                   ],
                                 ),
                               ),

@@ -54,10 +54,11 @@ class _ActivityNewState extends State<ActivityNew> {
   Widget build(BuildContext context) {
     // String startTime = 'Select Start Time';
     final screenSize = MediaQuery.of(context).size;
-    TimeOfDay? startTime = TimeOfDay.now();
-    TimeOfDay? endTime = TimeOfDay.now();
+    //TimeOfDay startTime = TimeOfDay.now();
+    //TimeOfDay endTime = TimeOfDay.now();
+    //TimeOfDay initialTime = TimeOfDay.now();
     late int companyId;
-    DateTime? startDate;
+    //DateTime? startDate;
 
     return Scaffold(
         floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
@@ -80,28 +81,30 @@ class _ActivityNewState extends State<ActivityNew> {
                 onPressed: () {
                   widget.client.callKw(
                     {
-                      'model': 'calendar.event',
+                      'model': 'mail.activity',
                       'method': 'create',
                       'args': [
                         {
-                          'name': customerName.text,
-                          'location': location.text,
+                          'name': customerName,
+                          'location': location,
+                          'description': description,
                           'res_model': 'crm.lead',
                           'opportunity_id': widget.clientId,
                         }
-                      ]
+                      ],
+                      'kwargs': {},
                     },
                   );
                   //for loop participant
-                  widget.client.callKw({
-                    'model': 'calendar.event.res.partner',
-                    'method': 'create',
-                    'args': [
-                      {
-                        'res_partner_id': '',
-                      }, //add multiple res.partner.id
-                    ],
-                  });
+                  //widget.client.callKw({
+                  //  'model': 'calendar.event.res.partner',
+                  //  'method': 'create',
+                  //  'args': [
+                  //    {
+                  //      'res_partner_id': '',
+                  //    }, //add multiple res.partner.id
+                  //  ],
+                  //});
                   ScaffoldMessenger.of(context)
                       .showMaterialBanner(MaterialBanner(
                     content: Text('Activity Created'),
@@ -129,8 +132,8 @@ class _ActivityNewState extends State<ActivityNew> {
                   Padding(
                     padding: EdgeInsets.only(
                       top: screenSize.height * 0.025,
-                      left: screenSize.width * 0.1,
-                      right: screenSize.width * 0.1,
+                      left: screenSize.width * 0.05,
+                      right: screenSize.width * 0.05,
                       bottom: screenSize.height * 0.025,
                     ),
                     child: Column(
@@ -180,11 +183,12 @@ class _ActivityNewState extends State<ActivityNew> {
                                   ButtonIcon(
                                     // ignore: fixme
                                     //FIXME datepick not responsive does not dynamically change the display of date
-                                    nama: startDate == initialDate &&
-                                            startTime == TimeOfDay.now()
-                                        ? 'Select Start Date and Time'
+                                    nama: startDate == initialDate
+                                        //&&
+                                        //startTime == TimeOfDay.now()
+                                        ? 'Select Start Date'
                                         : DateFormat('E\t dd MMM yyyy')
-                                            .format(endDate)
+                                            .format(startDate)
                                             .toString(),
                                     icon: const Icon(
                                         Icons.calendar_today_outlined),
@@ -196,7 +200,7 @@ class _ActivityNewState extends State<ActivityNew> {
                                               initialDate: initialDate,
                                               firstDate: DateTime(2020),
                                               lastDate: DateTime(2050),
-                                              confirmText: 'SELECT DATE');
+                                              confirmText: 'SELECT START DATE');
                                       // ignore: fixme
                                       //FIXME
                                       //         .then((value) {
@@ -209,26 +213,24 @@ class _ActivityNewState extends State<ActivityNew> {
                                       setState(() => startDate = dateStart);
                                     },
                                   ),
-                                  ButtonIcon(
-                                      // ignore: fixme
-                                      //FIXME timepicker not working
-                                      nama: startTime == TimeOfDay.now()
-                                          ? 'Pick Start Time'
-                                          : startTime.toString(),
-                                      warna: Colors.green,
-                                      onPressed: () async {
-                                        TimeOfDay? timeStart =
-                                            await showTimePicker(
-                                                context: context,
-                                                confirmText: 'SELECT TIME',
-                                                initialTime: TimeOfDay.now());
-                                        if (timeStart == null) return;
-                                        setState(() {
-                                          startTime = timeStart;
-                                        });
-                                      },
-                                      icon:
-                                          const Icon(Icons.access_time_rounded))
+                                  //ButtonIcon(
+                                  //    // ignore: fixme
+                                  //    //FIXME timepicker not working
+                                  //    nama: startTime == initialTime
+                                  //        ? 'Pick Start Time'
+                                  //        : startTime.toString(),
+                                  //    warna: Colors.green,
+                                  //    onPressed: () async {
+                                  //      TimeOfDay? timeStart =
+                                  //          await showTimePicker(
+                                  //              context: context,
+                                  //              confirmText: 'SELECT TIME',
+                                  //              initialTime: initialTime);
+                                  //      if (timeStart == null) return;
+                                  //      setState(() => startTime = timeStart);
+                                  //    },
+                                  //    icon: const Icon(
+                                  //        Icons.access_time_rounded))
                                 ],
                               ),
                               Row(
@@ -237,9 +239,10 @@ class _ActivityNewState extends State<ActivityNew> {
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   ButtonIcon(
-                                    nama: endDate == initialDate &&
-                                            startTime == TimeOfDay.now()
-                                        ? 'Select End Date'
+                                    nama: endDate == initialDate
+                                        //&&
+                                        //startTime == TimeOfDay.now()
+                                        ? 'Select Due Date'
                                         : DateFormat('E\t dd MMM yyyy')
                                             .format(endDate)
                                             .toString(),
@@ -253,30 +256,27 @@ class _ActivityNewState extends State<ActivityNew> {
                                           initialDate: initialDate,
                                           firstDate: DateTime(2020),
                                           lastDate: DateTime(2050),
-                                          confirmText: 'SELECT END DATE');
+                                          confirmText: 'SELECT DUE DATE');
                                       if (dateEnd == null) return;
 
                                       setState(() => endDate = dateEnd);
                                     },
                                   ),
-                                  ButtonIcon(
-                                      nama: endTime == TimeOfDay.now()
-                                          ? 'Pick End Time'
-                                          : endTime.toString(),
-                                      warna: Colors.red,
-                                      onPressed: () async {
-                                        TimeOfDay? timeEnd =
-                                            await showTimePicker(
-                                                context: context,
-                                                confirmText: 'SELECT END TIME',
-                                                initialTime: TimeOfDay.now());
-                                        if (timeEnd == null) return;
-                                        setState(() {
-                                          timeEnd = endTime;
-                                        });
-                                      },
-                                      icon:
-                                          const Icon(Icons.access_time_rounded))
+                                  //ButtonIcon(
+                                  //  nama: endTime == initialTime
+                                  //      ? 'Pick End Time'
+                                  //      : endTime.toString(),
+                                  //  warna: Colors.red,
+                                  //  onPressed: () async {
+                                  //    TimeOfDay? timeEnd = await showTimePicker(
+                                  //        context: context,
+                                  //        confirmText: 'SELECT END TIME',
+                                  //        initialTime: initialTime);
+                                  //    if (timeEnd == null) return;
+                                  //    setState(() => endTime = timeEnd);
+                                  //  },
+                                  //  icon: const Icon(Icons.access_time_rounded),
+                                  //),
                                 ],
                               ),
                             ],

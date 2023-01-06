@@ -27,20 +27,20 @@ class BottomNav extends StatelessWidget {
               child: Center(
                 child: Text(
                   'Home',
-                  style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
                 ),
               ),
             ),
             Tab(
               child: Text(
                 'Lead',
-                style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
               ),
             ),
             Tab(
               child: Text(
                 'Opportunity',
-                style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
               ),
             ),
             // Tab(
@@ -52,7 +52,7 @@ class BottomNav extends StatelessWidget {
             Tab(
               child: Text(
                 'Activity',
-                style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
               ),
             ),
           ]),

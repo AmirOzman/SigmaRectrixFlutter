@@ -34,7 +34,7 @@ class _LostReasonState extends State<LostReason> {
 
 //@override
 //void dispose() {
-//    userEditTextController.dispose();
+//  userEditTextController.dispose();
 //  super.dispose();
 //}
 
@@ -89,7 +89,7 @@ class _LostReasonState extends State<LostReason> {
               showSelectedItems: true,
               showSearchBox: true,
               searchFieldProps: TextFieldProps(
-                  controller: userEditTextController,
+                  //controller: userEditTextController,
                   keyboardType: TextInputType.text,
                   decoration: InputDecoration(
                     suffixIcon: Icon(Icons.clear),

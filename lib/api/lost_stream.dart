@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sigma_crm/widget/widget.dart';
+//import 'package:sigma_crm/screen/screen.dart';
+//import 'package:intl/intl.dart';
 
 class LostStream extends StatelessWidget {
   final OdooClient client;
@@ -7,14 +9,15 @@ class LostStream extends StatelessWidget {
   final int limit;
   final double height;
   final double width;
-  const LostStream(
-      {Key? key,
-      required this.client,
-      required this.direction,
-      required this.limit,
-      required this.height,
-      required this.width})
-      : super(key: key);
+  const LostStream({
+    Key? key,
+    required this.client,
+    required this.direction,
+    required this.limit,
+    required this.height,
+    required this.width,
+    required int filter,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -27,8 +30,9 @@ class LostStream extends StatelessWidget {
           'kwargs': {
             'context': {'bin_size': true},
             'domain': [
-              // ['type', '=', 'opportunity'],
-              ['stage_id', '=', 9],
+              ['type', '=', 'opportunity'],
+              //['stage_id', '=', filter],
+              ['active', '=', false]
               // ['probability', '=', 0],
               // ['lost_reason', '!=', false]
             ],
@@ -45,7 +49,7 @@ class LostStream extends StatelessWidget {
               'stage_id',
               'lost_reason'
             ],
-            'limit': limit,
+            //'limit': limit,
           }
         },
       );
@@ -70,6 +74,8 @@ class LostStream extends StatelessWidget {
       );
     }
 
+    var screensize = MediaQuery.of(context).size;
+    var screenwidth = screensize.width;
     return FutureBuilder(
       future: fetchLost(),
       builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
@@ -95,100 +101,189 @@ class LostStream extends StatelessWidget {
                   onTap: () {
                     showModalBottomSheet(
                       context: context,
+                      shape: const RoundedRectangleBorder(
+                        borderRadius: BorderRadius.vertical(
+                          top: Radius.circular(20),
+                        ),
+                      ),
                       builder: (BuildContext context) {
-                        return SingleChildScrollView(
-                            child: RoundedBox(
-                                h: 0.4,
-                                w: 1,
-                                roundAll: false,
-                                warna: Colors.white,
-                                child: Padding(
-                                  padding: const EdgeInsets.all(20.0),
-                                  child: Column(children: [
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      children: [
-                                        Column(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.start,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.center,
-                                          children: const [
-                                            Text('Email :'),
-                                            SpacingH(h: 0.01),
-                                            Text('Date Created : '),
-                                            SpacingH(h: 0.01),
-                                            Text('Lost Reason'),
-                                            SpacingH(h: 0.01),
-                                            Text('Description : ')
-                                          ],
-                                        ),
-                                        const SpacingW(w: 0.01),
-                                        Column(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.start,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                        return Padding(
+                          padding: const EdgeInsets.all(20.0),
+                          child: Column(
+                            children: [
+                              Wrap(
+                                spacing: 6.0,
+                                runSpacing: 4.0,
+                                direction: Axis.horizontal,
+                                children: [
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      RoundedBox(
+                                        h: 0.2,
+                                        w: 0.9,
+                                        roundAll: true,
+                                        child: Row(
                                           children: [
-                                            record['email_from'] == false
-                                                ? const Text('no email')
-                                                : Text(
-                                                    record['email'].toString()),
-                                            const SpacingH(h: 0.01),
-                                            record['create_date'] == false
-                                                ? const Text('unrecorded date')
-                                                : Text(record['create_date']
-                                                    .toString()),
-                                            const SpacingH(h: 0.01),
-                                            record['lost_reason'] == false
-                                                ? const Text('No reason')
-                                                : Text(record['lost_reason']
-                                                    .toString()),
-                                            const SpacingH(h: 0.01),
-                                            // ignore: fixme
-                                            //FIXME repair overflow description
-                                            SingleChildScrollView(
-                                              child: record['description'] ==
-                                                      false
-                                                  ? const Text('No description')
-                                                  : Text(record['description']
-                                                      .toString()),
+                                            Column(
+                                              children: [
+                                                Center(
+                                                  child: Container(
+                                                    width:
+                                                        screenwidth * 0.8 / 2,
+                                                    child: Text(
+                                                      'Email: ',
+                                                      style: Theme.of(context)
+                                                          .textTheme
+                                                          .headline5,
+                                                    ),
+                                                  ),
+                                                ),
+                                                SpacingVertical(10),
+                                                Center(
+                                                  child: Container(
+                                                    width:
+                                                        screenwidth * 0.8 / 2,
+                                                    child: Text(
+                                                      'Data Created: ',
+                                                      style: Theme.of(context)
+                                                          .textTheme
+                                                          .headline5,
+                                                    ),
+                                                  ),
+                                                ),
+                                                SpacingVertical(10),
+                                                Center(
+                                                  child: Container(
+                                                    width:
+                                                        screenwidth * 0.8 / 2,
+                                                    child: Text(
+                                                      'Lost Reason: ',
+                                                      style: Theme.of(context)
+                                                          .textTheme
+                                                          .headline5,
+                                                    ),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                            Column(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.start,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                record['email_from'] == null
+                                                    ? Text(
+                                                        record['email']
+                                                            .toString(),
+                                                      )
+                                                    : Text(
+                                                        'no email',
+                                                        style: Theme.of(context)
+                                                            .textTheme
+                                                            .headline5!
+                                                            .copyWith(
+                                                              fontStyle:
+                                                                  FontStyle
+                                                                      .italic,
+                                                            ),
+                                                      ),
+                                                SpacingVertical(10),
+                                                record['create_date'] == false
+                                                    ? Text('unrecorded date',
+                                                        style: Theme.of(context)
+                                                            .textTheme
+                                                            .headline5)
+                                                    : Text(
+                                                        record['create_date']
+                                                            .toString(),
+                                                        style: Theme.of(context)
+                                                            .textTheme
+                                                            .headline5),
+                                                SpacingVertical(10),
+                                                record['lost_reason'] == false
+                                                    ? Text('No reason',
+                                                        style: Theme.of(context)
+                                                            .textTheme
+                                                            .headline5)
+                                                    : Text(
+                                                        record['lost_reason']
+                                                            .toString(),
+                                                        style: Theme.of(context)
+                                                            .textTheme
+                                                            .headline5),
+                                              ],
                                             ),
                                           ],
-                                        )
-                                      ],
-                                    ),
-                                    const SpacingAll(h: 0.05, w: 1),
-                                    Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceAround,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.end,
-                                        children: [
-                                          ButtonIcon(
-                                            nama: 'Convert to Opportunity',
-                                            icon: const Icon(
-                                                Icons.star_border_rounded),
-                                            warna: Colors.green,
-                                            onPressed: () {
-                                              client.callKw({
-                                                'model': 'crm.lead',
-                                                'method': 'write',
-                                                'args': [
-                                                  record['id'],
-                                                  {
-                                                    'stage_id': 0,
-                                                  },
-                                                ]
-                                              });
-                                            },
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                              Text(
+                                'Description: ',
+                                style: Theme.of(context).textTheme.headline5,
+                              ),
+                              Expanded(
+                                child: SingleChildScrollView(
+                                  physics: AlwaysScrollableScrollPhysics(),
+                                  child: record['description'] == false
+                                      ? Container(
+                                          child: Text(
+                                            'No Description',
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .headline5!
+                                                .copyWith(
+                                                    fontStyle:
+                                                        FontStyle.italic),
                                           ),
-                                        ]),
+                                        )
+                                      : Text(
+                                          record['description'].toString(),
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .headline5!
+                                              .copyWith(
+                                                fontStyle: FontStyle.italic,
+                                              ),
+                                        ),
+                                ),
+                              ),
+                              Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceAround,
+                                  crossAxisAlignment: CrossAxisAlignment.end,
+                                  children: [
+                                    ButtonIcon(
+                                      nama: 'Convert to Opportunity',
+                                      icon:
+                                          const Icon(Icons.star_border_rounded),
+                                      warna: Colors.green,
+                                      onPressed: () {
+                                        client.callKw(
+                                          {
+                                            'model': 'crm.lead',
+                                            'method': 'write',
+                                            'args': [
+                                              record['id'],
+                                              {
+                                                'type': 'opportunity',
+                                              },
+                                            ],
+                                            'kwargs': {},
+                                          },
+                                        );
+                                      },
+                                    ),
                                   ]),
-                                )));
+                            ],
+                          ),
+                        );
                       },
                     );
                   },

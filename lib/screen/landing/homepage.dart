@@ -26,7 +26,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
 
     final avatarURL;
 
-    print("this is widget session pratner id" +
+    print("this is widget session partner id" +
         widget.session.partnerId.toString());
 
     // ignore: unnecessary_null_comparison

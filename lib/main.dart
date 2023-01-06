@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
       theme: theme(),
       // ignore: todo
       //TODO added
-      // initialRoute: initScreen == 0 || initScreen == null ? "first" : "/" OnBoarding(),,
+      // initialRoute: initScreen == 0 || initScreen == n ,ull ? "first" : "/" OnBoarding(),,
       // routes: {},
       // home: const LoginScreen(),
       home: const Onboarding(),

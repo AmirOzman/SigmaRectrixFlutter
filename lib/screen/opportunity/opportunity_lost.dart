@@ -37,7 +37,7 @@ class _OpportunityLostState extends State<OpportunityLost> {
                         height: 0.16,
                         width: 0.8,
                         limit: 1000,
-                        // filter: 9,
+                        filter: 11,
                         // lost: false, //lost
                       ),
                     )

@@ -39,7 +39,7 @@ class _OpportunityWonState extends State<OpportunityWon> {
                           height: 0.16,
                           width: 0.8,
                           limit: 80,
-                          filter: 4, //diagnose
+                          filter: 22, //diagnose
                         ),
                       )
                     ],

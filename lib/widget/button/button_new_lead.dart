@@ -31,7 +31,11 @@ class NewLeadButton extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => LeadForm(client, session),
+            builder: (context) => LeadForm(
+              client,
+              session,
+              id: null,
+            ),
           ),
         );
       },

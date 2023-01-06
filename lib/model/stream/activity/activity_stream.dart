@@ -88,7 +88,7 @@ class _ActivityStreamState extends State<ActivityStream>
             'location',
             'description',
             'day',
-            'partner_ids'
+            'partner_id'
           ],
           'limit': widget.limit,
         },
